@@ -1,0 +1,246 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 95vh;
+  background-color: #96aff5;
+}
+
+.select-box {
+  position: relative;
+  display: block;
+  width: 250px;
+  font-size: 18px;
+  color: #60666d;
+}
+
+.select-box__current {
+  position: relative;
+  box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  outline: none;
+}
+
+.select-box__current:focus + .select-box__list {
+  opacity: 1;
+  -webkit-animation-name: none;
+  animation-name: none;
+}
+
+.select-box__current:focus + .select-box__list .select-box__option {
+  cursor: pointer;
+}
+
+.select-box__current:focus .select-box__icon {
+  -webkit-transform: translateY(-50%) rotate(180deg);
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.select-box__icon {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 20px;
+  transition: 0.2s ease;
+}
+
+.select-box__value {
+  display: flex;
+}
+
+.select-box__input {
+  display: none;
+}
+
+.select-box__input:checked + .select-box__input-text {
+  display: block;
+}
+
+.select-box__input-text {
+  display: none;
+  width: 100%;
+  margin: 2px;
+  padding: 16px;
+  background-color: #96145f;
+  color: #fbf0ef;
+  border-radius: 30px;
+  text-align: center;
+}
+
+.select-box__list {
+  position: absolute;
+  width: 100%;
+  padding: 0;
+  list-style: none;
+  border-radius: 10px;
+  background-color: white;
+  opacity: 0;
+  -webkit-animation-name: HideList;
+  animation-name: HideList;
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-timing-function: step-start;
+  animation-timing-function: step-start;
+  box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+}
+
+.select-box__option {
+  display: block;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.select-box__option:hover,
+.select-box__option:focus {
+  background-color: #c7c7c7;
+  color: black;
+  scale: 1.05;
+  transition: 0.2s ease;
+}
+
+@-webkit-keyframes HideList {
+  from {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+  }
+
+  to {
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+  }
+}
+
+@keyframes HideList {
+  from {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+  }
+
+  to {
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+  }
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdown-and-searchbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 30px;
+  gap: 15px;
+}
+
+input {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  height: 50px;
+  width: 400px;
+}
+
+::placeholder {
+  color: #96145f;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  height: 50px;
+  padding-right: 12px;
+}
+
+@media screen and (max-width: 1024px) {
+  .select-box {
+    width: 230px;
+    font-size: 16px;
+  }
+  input {
+    width: 350px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .select-box {
+    width: 200px;
+  }
+  .select-box__input-text {
+    height: 16px;
+    padding: 13px;
+  }
+  .select-box__icon {
+    right: 5px;
+  }
+  input {
+    width: 250px;
+    height: 45px;
+  }
+  button {
+    height: 45px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .dropdown-and-searchbar {
+    gap: 10px;
+  }
+  .select-box {
+    width: 175px;
+    font-size: 14px;
+  }
+  .select-box__input-text {
+    height: 14px;
+    padding: 11px;
+  }
+  .select-box__icon {
+    right: 0px;
+    scale: 0.8;
+  }
+  input {
+    width: 200px;
+    height: 40px;
+  }
+  button {
+    height: 40px;
+  }
+  ::placeholder {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .dropdown-and-searchbar {
+    gap: 5px;
+  }
+  .select-box {
+    width: 150px;
+    font-size: 12px;
+  }
+  input {
+    width: 100px;
+    height: 40px;
+  }
+  ::placeholder {
+    font-size: 12px;
+  }
+  button {
+    height: 40px;
+    scale: 0.7;
+  }
+}
