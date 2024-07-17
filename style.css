@@ -232,6 +232,9 @@ button {
     width: 150px;
     font-size: 12px;
   }
+  .select-box__input-text {
+    padding: auto;
+  }
   input {
     width: 100px;
     height: 40px;
